@@ -56,6 +56,7 @@ def remove_iqr_outliers(df, column, threshold):
     lower = q1 - threshold * iqr
     upper = q3 + threshold * iqr
 
+# make the data within bound
     df = df[(df[column] >= lower) & (df[column] <= upper)].copy()
 
     logger.debug(
